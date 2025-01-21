@@ -4,9 +4,15 @@
   font-weight: 400;
   font-style: normal;
 }
+.rubik-moonrocks-regular {
+  font-family: "Rubik Moonrocks", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 body {
-  font-family: "Lexend Giga", serif;
+  font-family: "Rubik Moonrocks", serif;
   background: linear-gradient(135deg, #ee7752, #e73c7e,#f48c5c,#ff92ef,#eb368b,#b074e4);
   display: flex;
   color: white;
@@ -58,6 +64,7 @@ h1 {
 .big-bottle-container {
   width: 200px;
   height: 400px;
+  font-family: "Lexend Giga";
   background: rgba(255, 255, 255, 0.25);
   border: 1px solid #f35c94;  border-radius: 30px 30px 100px 100px;
   position: relative;
@@ -232,6 +239,7 @@ h1 {
   background: linear-gradient(45deg, #c830a9, #fd9494);
   color: white;
   border: none;
+  font-family: "Rubik Moonrocks", serif;
   padding: 12px 25px;
   border-radius: 25px;
   cursor: pointer;
