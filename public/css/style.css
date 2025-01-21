@@ -7,27 +7,40 @@
 
 body {
   font-family: "Lexend Giga", serif;
-  background: linear-gradient(135deg, #012d74 0%, #0242a9  , #487ed6 ,#5a8ee2 , #c2e9fb 100%);
+  background: linear-gradient(135deg, #ee7752, #e73c7e,#f48c5c,#ff92ef,#eb368b,#b074e4);
   display: flex;
+  color: white;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 150vh;
   margin: 0;
   padding: 20px;
-  animation: gradientShift 25s ease infinite;
+  animation: gradientShift 10s infinite;
 }
+
+
 
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  75% { background-position:0% 50%;}
+  100% { background-position: 100% 50%; }
+  
 }
 
 h1 {
-  color: #2c3e50;
+  color: #cffcf0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   font-size: 2.5em;
+  animation: Pulse 5s ease infinite;
  
+}
+
+@keyframes Pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+  
 }
 
 .bottle-section {
@@ -39,18 +52,17 @@ h1 {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  box-shadow: 0 8px 32px rgba(222, 68, 75, 0.466);
 }
 
 .big-bottle-container {
   width: 200px;
   height: 400px;
   background: rgba(255, 255, 255, 0.25);
-  border: 5px solid #295471;
-  border-radius: 30px 30px 100px 100px;
+  border: 1px solid #f35c94;  border-radius: 30px 30px 100px 100px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 8px 32px rgba(222, 68, 75, 0.466);
   transition: transform 0.3s ease;
 }
 
@@ -59,9 +71,8 @@ h1 {
 }
 
 .big-bottle {
-  width: 100%;
-  height: 100%;
-  position: relative;
+  width: 80%;
+  height: 80%;
 }
 
 .fill-level { 
@@ -69,20 +80,33 @@ h1 {
   bottom: 0; 
   left: 0; 
   width: 100%; 
-  background: linear-gradient(45deg, #285f6e, #005bea); 
-  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
-  border-radius: 0 0 95px 95px; 
-  overflow: hidden;
+  background: linear-gradient(45deg, #c830a9, #fd9494);
+  transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);  
+  /* contrôle la vitesse de transition */
 }
 
 .fill-level::before,
 .fill-level::after { 
   content: ""; 
+  /* dans css content=""; crée un élément en plus dans un contenu before:: ou after ::
+  ici on le met en position absolue afin de créer un efet de vague en plus */
   position: absolute; 
   left: 0; 
   width: 200%; 
   height: 100%; 
   background-color: rgba(132, 141, 248, 0.309);
+  animation: wave 7s infinite linear;
+}
+.fill-level::before,
+.fill-level::after { 
+  content: ""; 
+  /* dans css content=""; crée un élément en plus dans un contenu before:: ou after ::
+  ici on le met en position absolue afin de créer un efet de vague en plus */
+  position: absolute; 
+  left: 0; 
+  width: 200%; 
+  height: 100%; 
+  background-color: rgba(124, 26, 111, 0.318);
   animation: wave 7s infinite linear;
 }
 
@@ -96,14 +120,15 @@ h1 {
   0% {
       transform: 
           translate3d(-50%, 0, 0)
+          /* cela change sa place sur l'axe ca le fait avancer */
           rotateZ(0deg)
           scaleY(1);
   }
   25% {
       transform: 
-          translate3d(-37.5%, 0, 0)
-          rotateZ(2deg)
-          scaleY(0.95);
+          translate3d(-45%, 0, 0)
+          rotateZ(1deg)
+          scaleY(1);
   }
   50% {
       transform: 
@@ -131,10 +156,8 @@ h1 {
   transform: translate(-50%, -50%);
   margin: 0;
   font-weight: bold;
-  color: #2c3e50;
   text-align: center;
   z-index: 1;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
 }
 
@@ -150,14 +173,14 @@ h1 {
 .fillButton {
   width: 70px;
   height: 110px;
+  color: white;
   background: rgba(255, 255, 255, 0.2);
-  border: 2px solid #335268;
-  border-radius: 15px 15px 35px 35px;
+  border: 1px solid #f35c94;  border-radius: 30px 30px 100px 100px;
+  border-radius: 20px 20px 35px 35px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+  transition: all 0.3s  ease-in-out;
 }
 
 .fillButton::before {
@@ -167,29 +190,46 @@ h1 {
   left: 0;
   width: 100%;
   height: 50%;
-  background: linear-gradient(45deg, #00c6fb, #005bea);
-  transition: height 0.3s ease;
+  background: linear-gradient(45deg, #c830a9, #fd9494);
+  transition: height 0.3s  ease-in-out;
 }
+
+.fillButton::before { 
+  content: ""; 
+  /* dans css content=""; crée un élément en plus dans un contenu before:: ou after ::
+  ici on le met en position absolue afin de créer un efet de vague en plus */
+  position: absolute; 
+  left: 0; 
+  width: 200%; 
+  height: 50%; 
+  background-color: rgba(124, 26, 111, 0.679);
+  animation: wave 7s infinite ease-in-out;
+}
+
+
 
 .fillButton:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 8px 25px rgba(180, 27, 63, 0.3);
+}
+
+.fillButton:active {
+  transform: translateY(15px);
 }
 
 .fillButton::after {
-  content: attr(data-value) "ML";
+  content: attr(data-value) "ML"; 
+  /* le contenu du fill est en ml la valeur du data */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* permet de centrer dans le parent */
   font-size: 14px;
-  font-weight: bold;
-  color: #2c3e50;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 #emptyButton {
-  background: linear-gradient(45deg, #e54e4e, #fd9494);
+  background: linear-gradient(45deg, #c830a9, #fd9494);
   color: white;
   border: none;
   padding: 12px 25px;
@@ -204,10 +244,12 @@ h1 {
 
 #emptyButton:hover {
   background: linear-gradient(45deg, #ee5253, #ff6b6b);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(238, 82, 83, 0.4);
 }
 
+
+
 #emptyButton:active {
-  transform: translateY(1px);
+  transform: translateY(10px);
 }
