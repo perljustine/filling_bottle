@@ -1,0 +1,153 @@
+
+
+.lexend-giga-bottle {
+  font-family: "Lexend Giga", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    font-family: "Lexend Giga", serif;
+    background-color: #f0f8ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #0077be;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bottle-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .big-bottle-container {
+    width: 200px;
+    height: 400px;
+    background-color: rgba(224, 247, 250, 0.5);
+    border: 5px solid #0077be;
+    border-radius: 20px 20px 100px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .big-bottle {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .fill-level {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, #87cefa, #1e90ff);
+    transition: height 0.5s ease-in-out;
+    border-radius: 0 0 95px 95px;
+  }
+  
+  .fill-level::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    animation: wave 2s infinite linear;
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  #status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-weight: bold;
+    color: #0077be;
+    text-align: center;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  }
+  
+  .buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+  }
+  
+  .fillButton {
+    width: 60px;
+    height: 100px;
+    background-color: rgba(224, 247, 250, 0.5);
+    border: 3px solid #0077be;
+    border-radius: 10px 10px 30px 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .fillButton::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, #87cefa, #1e90ff);
+  }
+  
+  .fillButton:hover {
+    transform: scale(1.05);
+  }
+  
+  .fillButton::after {
+    content: attr(data-value) "ML";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #0077be;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  }
+  
+  #emptyButton {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  #emptyButton:hover {
+    background-color: #ff4757;
+  }
+  
+  
